@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\WifiController;
+use App\Http\Resources\WifiResource;
+use App\Models\Wifi;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +31,10 @@ Route::middleware(['auth'])->group(function () {
 
         Route::resource('/location', LocationController::class);
     });
+});
+
+Route::get('/api/wifi', function () {
+    return WifiResource::collection(Wifi::all());
 });
 
 require __DIR__.'/auth.php';

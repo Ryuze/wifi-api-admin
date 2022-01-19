@@ -7,3 +7,4 @@ cara instalasi:
 5. tambahkan DB_DATABASE dengan database yang akan digunakan
 6. jalankan php artisan migrate:fresh --seed
 7. jalankan php artisan serve
+8. api untuk data wifi dapat diakses di /api/wifi
