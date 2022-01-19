@@ -11,7 +11,7 @@ class Wifi extends Model
 
     protected $fillable = [
         'name',
-        'location_id',
+        'location',
         'status'
     ];
 

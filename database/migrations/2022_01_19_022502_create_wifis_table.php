@@ -16,7 +16,7 @@ class CreateWifisTable extends Migration
         Schema::create('wifis', function (Blueprint $table) {
             $table->id();
             $table->string('name', 100);
-            $table->string('location_id', 100);
+            $table->integer('location');
             $table->boolean('status');
             $table->timestamps();
         });

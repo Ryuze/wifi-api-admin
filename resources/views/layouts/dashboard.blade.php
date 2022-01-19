@@ -20,7 +20,7 @@
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
             <!-- Page Content -->
-            <main>
+            <main class="container mx-auto">
                 @yield('content')
             </main>
         </div>

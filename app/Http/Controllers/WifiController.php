@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Wifi;
 use App\Http\Requests\StoreWifiRequest;
 use App\Http\Requests\UpdateWifiRequest;
+use App\Models\Location;
+use Illuminate\Support\Facades\Session;
 
 class WifiController extends Controller
 {
@@ -25,7 +27,9 @@ class WifiController extends Controller
      */
     public function create()
     {
-        //
+        $locations = Location::select('id', 'name')->get();
+
+        return view('wifi.create', compact('locations'));
     }
 
     /**
@@ -36,7 +40,9 @@ class WifiController extends Controller
      */
     public function store(StoreWifiRequest $request)
     {
-        //
+        Wifi::create($request->validated());
+
+        return redirect()->route('wifi.index')->with('status', 'Data berhasil ditambahkan.');
     }
 
     /**
@@ -58,7 +64,10 @@ class WifiController extends Controller
      */
     public function edit(Wifi $wifi)
     {
-        //
+        $data = Wifi::find($wifi->id);
+        $locations = Location::select('id', 'name')->get();
+
+        return view('wifi.edit', compact('data', 'locations'));
     }
 
     /**
@@ -81,6 +90,9 @@ class WifiController extends Controller
      */
     public function destroy(Wifi $wifi)
     {
-        //
+        $wifi = Wifi::find($wifi->id);
+        $wifi->delete();
+
+        return redirect()->route('wifi.index')->with('status', 'Data berhasil dihapus.');
     }
 }
