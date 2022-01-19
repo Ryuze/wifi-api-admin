@@ -8,3 +8,7 @@ cara instalasi:
 6. jalankan php artisan migrate:fresh --seed
 7. jalankan php artisan serve
 8. api untuk data wifi dapat diakses di /api/wifi
+
+# user untuk login
+email: admin@admin.com
+password: asdqwe123
