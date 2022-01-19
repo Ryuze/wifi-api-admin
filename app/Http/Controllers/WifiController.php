@@ -79,7 +79,9 @@ class WifiController extends Controller
      */
     public function update(UpdateWifiRequest $request, Wifi $wifi)
     {
-        //
+        $wifi = Wifi::where('id', $wifi->id)->update($request->validated());
+     
+        return redirect()->route('wifi.index')->with('status', 'Data berhasil diubah.');
     }
 
     /**

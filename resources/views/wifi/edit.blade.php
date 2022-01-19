@@ -2,9 +2,10 @@
 
 @section('content')
     <div class="grid gap-4">
-        <form action="{{ route('wifi.store') }}" method="post">
+        <form action="{{ route('wifi.update', $data->id) }}" method="post">
             @csrf
-
+            @method('PUT')
+            
             @error('name')
                 <p class="validation-invalid-label">
                     <strong>{{ $message }}</strong>
