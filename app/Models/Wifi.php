@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Wifi extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'location_id',
+        'status'
+    ];
+
+    protected $hidden = [
+        'id'
+    ];
 }

@@ -15,7 +15,7 @@ class WifiController extends Controller
      */
     public function index()
     {
-        //
+        return view('wifi.index');
     }
 
     /**
